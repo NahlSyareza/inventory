@@ -7,17 +7,17 @@ class ReportWidgetLess extends StatelessWidget {
     Color? appBarColor = Colors.blue[700];
 
     List<Map<String, dynamic>> cat = [
-      {"judul": "Nemen", "artis": "NDX AKA", "lirik": "Revenue"},
-      {"judul": "Tresno Tekan Mati", "artis": "NDX AKA", "lirik": "Tax"},
+      {"no_nota": "ABC111", "nama": "ABC", "biaya": "30.000"},
+      {"no_nota": "DEF111", "nama": "DEF", "biaya": "25.000"},
       // {},
     ];
 
     List<Map<String, dynamic>> crane = [
-      {"judul": "TEMP_0", "artis": "ART_0", "lirik": "LYR_0"},
-      {"judul": "TEMP_1", "artis": "ART_1", "lirik": "LYR_1"},
-      {"judul": "TEMP_2", "artis": "ART_2", "lirik": "LYR_2"},
-      {"judul": "TEMP_3", "artis": "ART_3", "lirik": "LYR_3"},
-      {"judul": "TEMP_4", "artis": "ART_4", "lirik": "LYR_4"},
+      {"no_nota": "TEMP_0", "nama": "ART_0", "biaya": "LYR_0"},
+      {"no_nota": "TEMP_1", "nama": "ART_1", "biaya": "LYR_1"},
+      {"no_nota": "TEMP_2", "nama": "ART_2", "biaya": "LYR_2"},
+      {"no_nota": "TEMP_3", "nama": "ART_3", "biaya": "LYR_3"},
+      {"no_nota": "TEMP_4", "nama": "ART_4", "biaya": "LYR_4"},
       // {},
     ];
 
@@ -95,8 +95,8 @@ class ReportComponents {
   }
 
   Column transactionsList(List l) {
+    int descLength = 3;
     return Column(
-      // shrinkWrap: true,
       children: l.map((e) {
         return Container(
           color: Colors.grey[200],
@@ -120,34 +120,14 @@ class ReportComponents {
                         Expanded(
                           flex: 1,
                           child: Text(
-                            'Judul:',
+                            'No. Nota:',
                             style: TextStyle(color: Colors.black),
                           ),
                         ),
                         Expanded(
-                          flex: 5,
+                          flex: descLength,
                           child: Text(
-                            e['judul'],
-                            style: TextStyle(color: Colors.black),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox.fromSize(size: Size(0, 10)),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          flex: 1,
-                          child: Text(
-                            'Artis:',
-                            style: TextStyle(color: Colors.black),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 5,
-                          child: Text(
-                            e['artis'],
+                            e['no_nota'],
                             style: TextStyle(color: Colors.black),
                           ),
                         ),
@@ -160,14 +140,34 @@ class ReportComponents {
                         Expanded(
                           flex: 1,
                           child: Text(
-                            'Lirik:',
+                            'Nama:',
                             style: TextStyle(color: Colors.black),
                           ),
                         ),
                         Expanded(
-                          flex: 5,
+                          flex: descLength,
                           child: Text(
-                            e['lirik'],
+                            e['nama'],
+                            style: TextStyle(color: Colors.black),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox.fromSize(size: Size(0, 10)),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: Text(
+                            'Biaya:',
+                            style: TextStyle(color: Colors.black),
+                          ),
+                        ),
+                        Expanded(
+                          flex: descLength,
+                          child: Text(
+                            e['biaya'],
                             style: TextStyle(color: Colors.black),
                             textAlign: TextAlign.justify,
                           ),
