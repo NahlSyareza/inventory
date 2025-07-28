@@ -1,4 +1,4 @@
-# learning_project
+# inventory
 
 A new Flutter project.
 
